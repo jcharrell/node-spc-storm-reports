@@ -32,7 +32,23 @@ function parseData(product, data) {
 		let obj = {};
 		let eventDetails = eventMatches[i].split('|');
 		for(let j = 0; j < eventDetails.length; j++) {
-			obj[columns[j]] = eventDetails[j];
+			// Cleanup the value and cast to integer if it is a number
+			let value = eventDetails[j];
+
+			// Remove leading and trailing white spaces
+			value = value.trim();
+
+			// Change empty strings to null values
+			if(value === '') {
+				value = null
+			}
+
+			// If the value is not null and is a number, cast it to an integer
+			if(value !== null && !isNaN(value)) {
+				value = parseInt(value);
+			}
+
+			obj[columns[j]] = value;
 		}
 		events.push(obj);
 	}
@@ -42,6 +58,8 @@ function parseData(product, data) {
 
 module.exports = function reportsParse(data) {
 	// Return the products defined in the optional `options` object or return all.
+	// http://www.spc.noaa.gov/climo/data/nglsr/data/rpts/160406.log
 	var results = parseData('TORNADO', data);
+	console.log(results);
 	return Promise.resolve(results);
 };

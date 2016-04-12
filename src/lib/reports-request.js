@@ -10,7 +10,7 @@ module.exports = function reportsRequest(date) {
 
     return co(function* spcRequest() {
         let response = yield request.getAsync(`${baseUrl}${date}.log`);
-        return Promise.resolve(response.body);
+        return Promise.resolve(response);
     }).catch(function errorHandler(err) {
         throw(err);
     });

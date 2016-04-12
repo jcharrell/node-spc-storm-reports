@@ -2,10 +2,24 @@
 
 // Define a regular expression to extract each event for a given product
 const eventRegEx = new RegExp('^(.+)$', 'gm');
+const validProducts = ['tornado', 'hail', 'wndg', 'gust', 'blizzard', 'freezing rain', 'heavy snow', 'ice storm', 'sleet', 'snow', 'wildfire'];
 
 module.exports = function parseData(product, data) {
+	// Perform some basic data validation
+	if(typeof product !== 'string') {
+		throw new Error('`product` must be a valid string');
+	}
+
+	if(typeof data !== 'string') {
+		throw new Error('`data` must be a valid string');
+	}
+
+	if(validProducts.indexOf(product) === -1) {
+		throw new Error('Invalid product specified');
+	}
+
 	// Define a regular expression to extract a product block from the log
-	let productRegexString = `\\*{3}${product}\\*{3}\\n{2}\\s(.+)\\n{2,3}((?:.+\\n)+)`;
+	let productRegexString = `\\*{3}${product.toUpperCase()}\\*{3}\\n{2}\\s(.+)\\n{2,3}((?:.+\\n)+)`;
 
 	// Grab the product section.  If it is empty, return an empty array.
 	let productMatch = data.match(productRegexString);

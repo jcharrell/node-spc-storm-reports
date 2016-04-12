@@ -2,10 +2,10 @@
   "name": "node-spc-storm-reports",
   "version": "0.1.0",
   "description": "Module that fetches SPC storm reports.",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "./node_modules/.bin/babel -d lib src/"
+    "prepublish": "./node_modules/.bin/babel -d dist src/"
   },
   "author": "Chris Harrell",
   "license": "ISC",

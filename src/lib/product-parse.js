@@ -21,11 +21,13 @@ module.exports = function parseData(product, data) {
 	let eventMatches = productMatch[2].match(eventRegEx);
 
 	// Create an array of each column name for this product block
+	productMatch[1] = productMatch[1].toLowerCase();
 	let columns = productMatch[1].split('|');
 
 	/*
 	 Loop through each event in the product block.  Create a new object, and
 	 assign the values to the appropriate property name.  Add the event to the array of events.
+	 I opted to use a `for` loop rather than a `forEach`, simply for performance.
 	 */
 	for(let i = 0; i < eventMatches.length; i++) {
 		let obj = {};

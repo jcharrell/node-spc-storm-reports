@@ -18,7 +18,12 @@ const nodeStormReports = require('node-storm-reports');
 
 ## API
 
-### nodeStormReports([options])
+### nodeStormReports(date, [options])
+
+#### date
+Type: `string`<br>
+
+String in date format `YYYY-MM-DD`, e.g. 2016-01-30
 
 #### options
 

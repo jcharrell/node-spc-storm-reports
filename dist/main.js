@@ -2,6 +2,16 @@
 
 // Regular expression to validate the requested date format
 
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var request = require('./lib/reports-request');
 var parse = require('./lib/reports-parse');
 var Promise = require('bluebird');
@@ -23,18 +33,18 @@ var defaultOptions = {
 };
 
 module.exports = function requestReports(date, userOptions) {
-				return co(regeneratorRuntime.mark(function gatherReports() {
+				return co(_regenerator2.default.mark(function gatherReports() {
 								var productOptions, response;
-								return regeneratorRuntime.wrap(function gatherReports$(_context) {
+								return _regenerator2.default.wrap(function gatherReports$(_context) {
 												while (1) {
 																switch (_context.prev = _context.next) {
 																				case 0:
 																								productOptions = {};
 
-																								productOptions = Object.assign(productOptions, defaultOptions);
+																								productOptions = (0, _assign2.default)(productOptions, defaultOptions);
 
 																								if (userOptions) {
-																												productOptions = Object.assign(productOptions, userOptions);
+																												productOptions = (0, _assign2.default)(productOptions, userOptions);
 																								}
 
 																								_context.next = 5;

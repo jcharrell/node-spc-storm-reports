@@ -9,7 +9,6 @@ const co = require('co');
 module.exports = function reportsRequest(date, options) {
     return co(function* spcRequest() {
 		if(!dateRegex.test(date)) {
-			console.log('invalid date!');
 			throw new Error("'date' must be a valid date format.");
 		}
 

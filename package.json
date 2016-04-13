@@ -1,6 +1,6 @@
 {
   "name": "node-spc-storm-reports",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "This is a library that parses and returns NWS Storm Prediction Center storm reports.",
   "main": "dist/main.js",
   "scripts": {
@@ -11,6 +11,14 @@
     "type": "git",
     "url": "https://github.com/jcharrell/node-spc-storm-reports.git"
   },
+  "keywords": [
+    "spc",
+    "weather",
+    "nws",
+    "storm",
+    "torado",
+    "reports"
+  ],
   "author": "Chris Harrell",
   "license": "ISC",
   "devDependencies": {

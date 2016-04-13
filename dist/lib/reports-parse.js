@@ -39,9 +39,12 @@ module.exports = function parseReports(data, options) {
 
 					case 4:
 						results = {};
+						// Loop through each product property within the options object
 
 						for (property in options) {
+							// If the product is requested to be returned (`true`)
 							if (options.hasOwnProperty(property) && options[property]) {
+								// Parse the events for this product and store it in the the results (response)
 								results[property] = parseProduct(property, data);
 							}
 						}

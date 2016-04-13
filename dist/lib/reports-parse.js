@@ -15,8 +15,7 @@ var Promise = require('bluebird');
 var parseProduct = require('./product-parse');
 
 module.exports = function parseReports(data, options) {
-	// Return the products defined in the optional `options` object or return all.
-	// http://www.spc.noaa.gov/climo/data/nglsr/data/rpts/160406.log
+	// Return the products defined in the optional `options` object or return the defaults.
 	return co(_regenerator2.default.mark(function spcRequest() {
 		var results, property;
 		return _regenerator2.default.wrap(function spcRequest$(_context) {

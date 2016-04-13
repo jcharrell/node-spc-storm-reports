@@ -77,6 +77,10 @@ module.exports = function parseData(product, data) {
 
 			obj[columns[j]] = value;
 		}
+		// Create a proper decimal value for latitude and longitude values provided by the NWS input
+		obj.lat = ((obj.lat * 0.01).toFixed(2) / 1);
+		obj.lon = ((obj.lon * -0.01).toFixed(2) / 1);
+
 		events.push(obj);
 	}
 

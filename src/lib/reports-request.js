@@ -6,14 +6,10 @@ const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
 const co = require('co');
 
-module.exports = function reportsRequest(date, options) {
+module.exports = function reportsRequest(date) {
     return co(function* spcRequest() {
 		if(!dateRegex.test(date)) {
 			throw new Error("'date' must be a valid date format.");
-		}
-
-		if(options && typeof options !== 'object') {
-			throw new Error("'options' must be a valid object.");
 		}
 
 		date = date.replace(/\d{2}(\d{2})-(\d{2})-(\d{2})/, '$1$2$3');

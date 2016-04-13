@@ -53,11 +53,11 @@ nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function
 		* Defines whether wind damage reports should be returned
 	- `gust`
 		* Type: `boolean`
-		* Default: `true`
+		* Default: `false`
 		* Defines whether wind gust reports should be returned
 	- `blizzard`
 		* Type: `boolean`
-		* Default: `true`
+		* Default: `false`
 		* Defines whether blizzard reports should be returned
 	- `freezingRain`
 		* Type: `boolean`

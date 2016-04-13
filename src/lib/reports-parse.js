@@ -16,7 +16,12 @@ module.exports = function parseReports(data, options) {
 			throw new Error("'options' must be a valid object.");
 		}
 
-		var results = parseProduct('tornado', data);
+		let results = {};
+		for (var property in options) {
+			if (options.hasOwnProperty(property) && options[property]) {
+				results[property] = parseProduct(property, data);
+			}
+		}
 
 		return Promise.resolve(results);
 	}).catch(function errorHandler(err) {

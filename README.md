@@ -1,18 +1,25 @@
-# node-storm-reports
+# node-spc-storm-reports
 
->
+> This is a library that parses and returns NWS Storm Prediction Center [storm reports](http://www.spc.noaa.gov/climo/online/).
 
 ## Install
 
 ```
-$ npm install --save node-storm-reports
+$ npm install node-spc-storm-reports
 ```
 
 
 ## Usage
 
 ```js
-const nodeStormReports = require('node-storm-reports');
+var nodeStormReports = require('node-spc-storm-reports');
+
+// Only request tornado reports
+nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function spcResponse(data) {
+	console.log(data);
+}).catch(function errorHandler(err) {
+	console.log(err);
+});
 ```
 
 
@@ -20,33 +27,62 @@ const nodeStormReports = require('node-storm-reports');
 
 ### nodeStormReports(date, [options])
 
-#### date
-Type: `string`<br>
+### date
+- Type: `string`
 
-String in date format `YYYY-MM-DD`, e.g. 2016-01-30
+- String in date format `YYYY-MM-DD`, e.g. 2016-01-30
 
-#### options
+### options (optional)
 
-##### tornado
+- Type: `object`
 
-Type: `boolean`<br>
-Default: `true`
+- Defines which weather products should be returned.  NOTE: If no data is available for a given product, the returned value will be an empty array.
 
-Defines whether tornado reports should be returned.
-
-##### wind
-
-Type: `boolean`<br>
-Default: `true`
-
-Defines whether wind reports should be returned.
-
-##### hail
-
-Type: `boolean`<br>
-Default: `true`
-
-Defines whether hail reports should be returned.
+- Properties:
+	- `tornado`
+		* Type: `boolean`
+		* Default: `true`
+		* Defines whether tornado reports should be returned
+	- `hail`
+		* Type: `boolean`
+		* Default: `true`
+		* Defines whether hail reports should be returned
+	- `windDamage`
+		* Type: `boolean`
+		* Default: `true`
+		* Defines whether wind damage reports should be returned
+	- `gust`
+		* Type: `boolean`
+		* Default: `true`
+		* Defines whether wind gust reports should be returned
+	- `blizzard`
+		* Type: `boolean`
+		* Default: `true`
+		* Defines whether blizzard reports should be returned
+	- `freezingRain`
+		* Type: `boolean`
+		* Default: `false`
+		* Defines whether freezing rain reports should be returned
+	- `heavySnow`
+		* Type: `boolean`
+		* Default: `false`
+		* Defines whether heavy snow reports should be returned
+	- `iceStorm`
+		* Type: `boolean`
+		* Default: `false`
+		* Defines whether ice storm reports should be returned
+	- `sleet`
+		* Type: `boolean`
+		* Default: `false`
+		* Defines whether sleet reports should be returned
+	- `snow`
+		* Type: `boolean`
+		* Default: `false`
+		* Defines whether snow reports should be returned
+	- `wildfire`
+		* Type: `boolean`
+		* Default: `false`
+		* Defines whether wildfire reports should be returned
 
 
 ## License

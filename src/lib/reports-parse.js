@@ -6,7 +6,12 @@ const parseProduct = require('./product-parse');
 module.exports = function praseReports(data) {
 	// Return the products defined in the optional `options` object or return all.
 	// http://www.spc.noaa.gov/climo/data/nglsr/data/rpts/160406.log
-	var results = parseProduct('TORNADO', data);
+	try {
+		var results = parseProduct('tornado', data);
 
-	return Promise.resolve(results);
+		return Promise.resolve(results);
+	} catch(err) {
+		throw err;
+	}
+
 };

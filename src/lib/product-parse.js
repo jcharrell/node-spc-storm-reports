@@ -19,7 +19,7 @@ module.exports = function parseData(product, data) {
 	}
 
 	// Define a regular expression to extract a product block from the log
-	let productRegexString = `\\*{3}${product.toUpperCase()}\\*{3}\\n{2}\\s(.+)\\n{2,3}((?:[^\\*].+\\n)+)`;
+	let productRegexString = `\\*{3}${product.toUpperCase()}\\*{3}\\n{2}\\s(.+)\\n{2,3}((?!\\*{3}\\w+\\*{3})(?:.+\\n)+)`;
 
 	// Grab the product section.  If it is empty, return an empty array.
 	let productMatch = data.match(productRegexString);

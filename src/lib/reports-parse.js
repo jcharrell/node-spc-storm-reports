@@ -16,7 +16,7 @@ module.exports = function parseReports(data, options) {
 		}
 
 		let results = {};
-		for (var property in options) {
+		for (let property in options) {
 			if (options.hasOwnProperty(property) && options[property]) {
 				results[property] = parseProduct(property, data);
 			}

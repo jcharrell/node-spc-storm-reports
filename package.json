@@ -1,7 +1,7 @@
 {
   "name": "node-spc-storm-reports",
   "version": "0.2.0",
-  "description": "Module that fetches SPC storm reports.",
+  "description": "This is a library that parses and returns NWS Storm Prediction Center storm reports.",
   "main": "dist/main.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --require co-mocha",

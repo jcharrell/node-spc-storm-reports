@@ -4,7 +4,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const reportsRequest = require('./../src/lib/reports-request');
 
-describe('Request SPC storm reports', function getReportsSuccessDescribe() {
+describe('Requesting SPC storm reports', function getReportsSuccessDescribe() {
 	let response;
 
 	before(function* getReportsSuccessBefore() {

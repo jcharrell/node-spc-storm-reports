@@ -22,7 +22,7 @@ const defaultOptions = {
 };
 
 module.exports = function requestReports(date, userOptions) {
-    co(function* gatherReports() {
+    return co(function* gatherReports() {
 		let productOptions = {};
 		productOptions = Object.assign(productOptions, defaultOptions);
 
@@ -31,7 +31,7 @@ module.exports = function requestReports(date, userOptions) {
 		}
 
         let response = yield request(date);
-        let reports = yield parse(response.body, productOptions);
+        return yield parse(response.body, productOptions);
     }).catch(function errorHandler(err) {
         console.error(err.stack);
         throw(err);

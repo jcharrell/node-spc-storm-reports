@@ -1,7 +1,6 @@
 'use strict';
 
 // Define a regular expression to extract each event for a given product
-const eventRegEx = new RegExp('^(.+)$', 'gm');
 const validProducts = {
 	tornado: 'TORNADO',
 	hail: 'HAIL',
@@ -44,7 +43,7 @@ module.exports = function parseData(product, data) {
 	let events = [];
 
 	// Extract each event from the product block
-	let eventMatches = productMatch[2].match(eventRegEx);
+	let eventMatches = productMatch[2].trim().split("\n");
 
 	// Create an array of each column name for this product block
 	productMatch[1] = productMatch[1].toLowerCase();

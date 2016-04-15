@@ -87,4 +87,4 @@ nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function
 
 ## License
 
-MIT © Chris Harrell(https://github.com/jcharrell)
+[ISC](https://github.com/jcharrell/node-spc-storm-reports/blob/master/LICENSE) © [Chris Harrell](https://github.com/jcharrell)

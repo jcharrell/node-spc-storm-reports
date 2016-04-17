@@ -3,7 +3,6 @@
 // Regular expression to validate the requested date format
 const request = require('./lib/reports-request');
 const parse = require('./lib/reports-parse');
-const Promise = require('bluebird');
 const co = require('co');
 
 // Default options, which determine the data attributes to request and return
@@ -22,18 +21,17 @@ const defaultOptions = {
 };
 
 module.exports = function requestReports(date, userOptions) {
-    return co(function* gatherReports() {
-		let productOptions = {};
-		productOptions = Object.assign(productOptions, defaultOptions);
+	return co(function* gatherReports() {
+		let productOptions = Object.assign({}, defaultOptions);
 
-		if(userOptions) {
+		if (userOptions) {
 			productOptions = Object.assign(productOptions, userOptions);
 		}
 
         let response = yield request(date);
-        return yield parse(response.body, productOptions);
-    }).catch(function errorHandler(err) {
-        console.error(err.stack);
-        throw(err);
-    });
+		return parse(response.body, productOptions);
+	}).catch(function errorHandler(err) {
+		console.error(err.stack);
+		throw(err);
+	});
 };

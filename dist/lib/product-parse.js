@@ -19,15 +19,15 @@ var validProducts = {
 module.exports = function parseData(product, data) {
 	// Perform some basic data validation
 	if (typeof product !== 'string') {
-		throw new Error('`product` must be a valid string');
+		throw new Error('`product` must be a valid string.');
 	}
 
 	if (typeof data !== 'string') {
-		throw new Error('`data` must be a valid string');
+		throw new Error('`data` must be a valid string.');
 	}
 
 	if (!validProducts.hasOwnProperty(product)) {
-		throw new Error('Invalid product specified');
+		throw new Error('Invalid product specified,');
 	}
 
 	// Define a regular expression to extract a product block from the log
@@ -44,7 +44,7 @@ module.exports = function parseData(product, data) {
 	var events = [];
 
 	// Extract each event from the product block
-	var eventMatches = productMatch[2].trim().split("\n");
+	var eventMatches = productMatch[2].trim().split('\n');
 
 	// Create an array of each column name for this product block
 	productMatch[1] = productMatch[1].toLowerCase();

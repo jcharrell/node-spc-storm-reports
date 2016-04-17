@@ -14,58 +14,52 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var request = require('./lib/reports-request');
 var parse = require('./lib/reports-parse');
-var Promise = require('bluebird');
 var co = require('co');
 
 // Default options, which determine the data attributes to request and return
 var defaultOptions = {
-				tornado: true,
-				hail: true,
-				windDamage: true,
-				gust: false,
-				blizzard: false,
-				freezingRain: false,
-				heavySnow: false,
-				iceStorm: false,
-				sleet: false,
-				snow: false,
-				wildfire: false
+	tornado: true,
+	hail: true,
+	windDamage: true,
+	gust: false,
+	blizzard: false,
+	freezingRain: false,
+	heavySnow: false,
+	iceStorm: false,
+	sleet: false,
+	snow: false,
+	wildfire: false
 };
 
 module.exports = function requestReports(date, userOptions) {
-				return co(_regenerator2.default.mark(function gatherReports() {
-								var productOptions, response;
-								return _regenerator2.default.wrap(function gatherReports$(_context) {
-												while (1) {
-																switch (_context.prev = _context.next) {
-																				case 0:
-																								productOptions = {};
+	return co(_regenerator2.default.mark(function gatherReports() {
+		var productOptions, response;
+		return _regenerator2.default.wrap(function gatherReports$(_context) {
+			while (1) {
+				switch (_context.prev = _context.next) {
+					case 0:
+						productOptions = (0, _assign2.default)({}, defaultOptions);
 
-																								productOptions = (0, _assign2.default)(productOptions, defaultOptions);
 
-																								if (userOptions) {
-																												productOptions = (0, _assign2.default)(productOptions, userOptions);
-																								}
+						if (userOptions) {
+							productOptions = (0, _assign2.default)(productOptions, userOptions);
+						}
 
-																								_context.next = 5;
-																								return request(date);
+						_context.next = 4;
+						return request(date);
 
-																				case 5:
-																								response = _context.sent;
-																								_context.next = 8;
-																								return parse(response.body, productOptions);
+					case 4:
+						response = _context.sent;
+						return _context.abrupt('return', parse(response.body, productOptions));
 
-																				case 8:
-																								return _context.abrupt('return', _context.sent);
-
-																				case 9:
-																				case 'end':
-																								return _context.stop();
-																}
-												}
-								}, gatherReports, this);
-				})).catch(function errorHandler(err) {
-								console.error(err.stack);
-								throw err;
-				});
+					case 6:
+					case 'end':
+						return _context.stop();
+				}
+			}
+		}, gatherReports, this);
+	})).catch(function errorHandler(err) {
+		console.error(err.stack);
+		throw err;
+	});
 };

@@ -11,7 +11,6 @@ var _typeof3 = _interopRequireDefault(_typeof2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var co = require('co');
-var Promise = require('bluebird');
 var parseProduct = require('./product-parse');
 
 module.exports = function parseReports(data, options) {
@@ -27,7 +26,7 @@ module.exports = function parseReports(data, options) {
 							break;
 						}
 
-						throw new Error('`data` must be a valid string');
+						throw new Error('`data` must be a valid string.');
 
 					case 2:
 						if (!(options && (typeof options === 'undefined' ? 'undefined' : (0, _typeof3.default)(options)) !== 'object')) {
@@ -35,7 +34,7 @@ module.exports = function parseReports(data, options) {
 							break;
 						}
 
-						throw new Error("'options' must be a valid object.");
+						throw new Error('`options` must be a valid object.');
 
 					case 4:
 						results = {};
@@ -49,7 +48,7 @@ module.exports = function parseReports(data, options) {
 							}
 						}
 
-						return _context.abrupt('return', Promise.resolve(results));
+						return _context.abrupt('return', results);
 
 					case 7:
 					case 'end':

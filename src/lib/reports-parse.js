@@ -1,20 +1,19 @@
 'use strict';
 
 const co = require('co');
-const Promise = require('bluebird');
 const parseProduct = require('./product-parse');
 
 module.exports = function parseReports(data, options) {
 	// Return the products defined in the optional `options` object or return the defaults.
 	return co(function* spcRequest() {
 		// Validate that the data is a valid string
-		if(typeof data !== 'string') {
-			throw new Error('`data` must be a valid string');
+		if (typeof data !== 'string') {
+			throw new Error('`data` must be a valid string.');
 		}
 
 		// If an `options` value is supplied, verify that it is an object
-		if(options && typeof options !== 'object') {
-			throw new Error("'options' must be a valid object.");
+		if (options && typeof options !== 'object') {
+			throw new Error('`options` must be a valid object.');
 		}
 
 		let results = {};
@@ -27,8 +26,8 @@ module.exports = function parseReports(data, options) {
 			}
 		}
 
-		return Promise.resolve(results);
+		return results;
 	}).catch(function errorHandler(err) {
-		throw (err);
+		throw err;
 	});
 };

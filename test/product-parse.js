@@ -32,18 +32,18 @@ describe('Parsing a product without events', function getParsedProductSuccessDes
 	});
 });
 
-describe('Attempting to parse a report without a valid string for the product', function getParsedProductSuccessDescribe() {
+describe('Parsing a product without a valid product string', function getParsedProductBadProduct() {
 
-	it('should throw an error', function noRightsCode() {
+	it('should throw an error', function invalidProduct() {
 		expect(function () {
 			parseProduct(123, productWithEvents);
 		}).to.throw('`product` must be a valid string');
 	});
 });
 
-describe('Attempting to parse a report without a valid string for the data', function getParsedProductSuccessDescribe() {
+describe('Parsing a product without a valid data string', function getParsedProductBadData() {
 
-	it('should throw an error', function noRightsCode() {
+	it('should throw an error', function invalidData() {
 		expect(function () {
 			parseProduct('tornado', []);
 		}).to.throw('`data` must be a valid string');

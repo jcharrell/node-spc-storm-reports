@@ -8,7 +8,7 @@ const co = require('co');
 // Default options, which determine the data attributes to request and return
 const defaultOptions = {
 	tornado: true,
-    hail: true,
+	hail: true,
 	windDamage: true,
 	gust: false,
 	blizzard: false,
@@ -28,7 +28,7 @@ module.exports = function requestReports(date, userOptions) {
 			productOptions = Object.assign(productOptions, userOptions);
 		}
 
-        let response = yield request(date);
+		let response = yield request(date);
 		return parse(response.body, productOptions);
 	}).catch(function errorHandler(err) {
 		console.error(err.stack);

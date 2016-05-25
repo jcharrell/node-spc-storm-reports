@@ -84,6 +84,77 @@ nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function
 		* Default: `false`
 		* Defines whether wildfire reports should be returned
 
+##Returned Data Structure Sample
+```
+{
+	tornado: [
+		{
+			id: 1,
+			time: '18:30',
+			type: 'T',
+			distance: 3,
+			direction: 'NW',
+			city: 'REPUBLIC',
+			county: 'MARQUETTE',
+			source: 'NWS STORM SURVEY',
+			remark: 'PRELIMINARY NWS STORM SURVEY CONFIRMS TREE DAMAGE ASSOCIATED WITH A TORNADO ALONG RIVER ROAD NORTHWEST OF REPUBLIC...INCLUDING SNAPPED WHITE PINES LARGER THAN 12 INCHES IN DIAMETER. TIME ESTIMATED FROM RADAR.',
+			office: 'MQT',
+			issuance: 1464132240,
+			fatalities: 0,
+			injuries: 0,
+			magnitudeDesignator: null,
+			magnitude: null,
+			state: 'MI',
+			latitude: 46.43,
+			longitude: -88.03
+		}
+	],
+	hail: [
+		{
+			id: 33,
+			time: '19:54',
+			type: 'A',
+			distance: 3,
+			direction: 'W',
+			city: 'ARVADA',
+			county: 'JEFFERSON',
+			source: 'TRAINED SPOTTER',
+			remark: null,
+			office: 'BOU',
+			issuance: 1464139140,
+			fatalities: 0,
+			injuries: 0,
+			magnitudeDesignator: 'M',
+			magnitude: 100,
+			state: 'CO',
+			latitude: 39.82,
+			longitude: -105.16
+		}
+	],
+	windDamage: [
+		{
+			id: 104,
+			time: '19:00',
+			type: 'W',
+			distance: 3,
+			direction: 'WNW',
+			city: 'PEEL',
+			county: 'MARION',
+			source: 'EMERGENCY MNGR',
+			remark: 'TREES AND POWERLINES DOWN IN THE AREA.',
+			office: 'LZK',
+			issuance: 1464118500,
+			fatalities: 0,
+			injuries: 0,
+			magnitudeDesignator: null,
+			magnitude: null,
+			state: 'AR',
+			latitude: 36.45,
+			longitude: -92.82
+		}
+	]
+}}
+````
 
 ## License
 

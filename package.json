@@ -32,7 +32,6 @@
   "dependencies": {
     "babel-runtime": "^6.6.1",
     "bluebird": "^3.3.4",
-    "co": "^4.6.0",
-    "moment": "^2.13.0"
+    "co": "^4.6.0"
   }
 }

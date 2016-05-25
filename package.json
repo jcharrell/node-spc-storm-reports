@@ -1,6 +1,6 @@
 {
   "name": "node-spc-storm-reports",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "This is a library that parses and returns NWS Storm Prediction Center storm reports.",
   "main": "dist/main.js",
   "scripts": {

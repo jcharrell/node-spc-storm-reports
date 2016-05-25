@@ -3,6 +3,7 @@
 // Regular expression to validate the requested date format
 const request = require('./lib/reports-request');
 const parse = require('./lib/reports-parse');
+const propertyMapper = require('./lib/reports-property-mapper');
 const co = require('co');
 
 // Default options, which determine the data attributes to request and return
@@ -29,7 +30,9 @@ module.exports = function requestReports(date, userOptions) {
 		}
 
 		let response = yield request(date);
-		return parse(response.body, productOptions);
+		let reportData = yield parse(response.body, productOptions);
+
+		return yield propertyMapper(reportData);
 	}).catch(function errorHandler(err) {
 		console.error(err.stack);
 		throw(err);

@@ -1,6 +1,8 @@
 'use strict';
 
 const co = require('co');
+
+// Map our replacement properties for those that are not very enough
 const propertyMappings = {
 	'#': 'id',
 	'e/m/u': 'magnitudeDesignator',

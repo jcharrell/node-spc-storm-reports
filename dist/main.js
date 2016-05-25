@@ -14,6 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var request = require('./lib/reports-request');
 var parse = require('./lib/reports-parse');
+var propertyMapper = require('./lib/reports-property-mapper');
 var co = require('co');
 
 // Default options, which determine the data attributes to request and return
@@ -33,7 +34,7 @@ var defaultOptions = {
 
 module.exports = function requestReports(date, userOptions) {
 	return co(_regenerator2.default.mark(function gatherReports() {
-		var productOptions, response;
+		var productOptions, response, reportData;
 		return _regenerator2.default.wrap(function gatherReports$(_context) {
 			while (1) {
 				switch (_context.prev = _context.next) {
@@ -50,9 +51,18 @@ module.exports = function requestReports(date, userOptions) {
 
 					case 4:
 						response = _context.sent;
-						return _context.abrupt('return', parse(response.body, productOptions));
+						_context.next = 7;
+						return parse(response.body, productOptions);
 
-					case 6:
+					case 7:
+						reportData = _context.sent;
+						_context.next = 10;
+						return propertyMapper(reportData);
+
+					case 10:
+						return _context.abrupt('return', _context.sent);
+
+					case 11:
 					case 'end':
 						return _context.stop();
 				}

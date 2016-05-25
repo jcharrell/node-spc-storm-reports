@@ -58,11 +58,15 @@ module.exports = function parseData(product, data) {
 		let obj = {};
 		let eventDetails = eventMatches[i].split('|');
 		for (let j = 0; j < eventDetails.length; j++) {
-			// Cleanup the value and cast to integer if it is a number
 			let value = eventDetails[j];
 
 			// Remove leading and trailing white spaces
 			value = value.trim();
+
+			// If this is the `time` value, make it resemble a time...
+			if(columns[j] === 'time') {
+				value = value.replace(/(\d{2})(\d{2})/, '$1:$2');
+			}
 
 			// Change empty strings to null values
 			if (value === '') {

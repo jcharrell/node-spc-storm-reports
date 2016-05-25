@@ -6,15 +6,14 @@ var _regenerator2 = _interopRequireDefault(_regenerator);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var baseUrl = 'http://www.spc.noaa.gov/climo/data/nglsr/data/rpts/';
 var dateRegex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
-var Promise = require('bluebird');
-var request = Promise.promisifyAll(require('request'));
+var request = require('./request');
 var co = require('co');
 
 module.exports = function reportsRequest(date) {
+
 	return co(_regenerator2.default.mark(function spcRequest() {
-		var response;
+		var requestOptions, response;
 		return _regenerator2.default.wrap(function spcRequest$(_context) {
 			while (1) {
 				switch (_context.prev = _context.next) {
@@ -28,25 +27,30 @@ module.exports = function reportsRequest(date) {
 
 					case 2:
 
+						// Utilize the supplied date to produce the SPC log date format
 						date = date.replace(/\d{2}(\d{2})-(\d{2})-(\d{2})/, '$1$2$3');
 
-						_context.next = 5;
-						return request.getAsync('' + baseUrl + date + '.log');
+						requestOptions = {
+							host: 'www.spc.noaa.gov',
+							path: '/climo/data/nglsr/data/rpts/' + date + '.log'
+						};
+						_context.next = 6;
+						return request(requestOptions);
 
-					case 5:
+					case 6:
 						response = _context.sent;
 
 						if (!(response.statusCode !== 200)) {
-							_context.next = 8;
+							_context.next = 9;
 							break;
 						}
 
 						throw new Error('Invalid response from the SPC.');
 
-					case 8:
+					case 9:
 						return _context.abrupt('return', response);
 
-					case 9:
+					case 10:
 					case 'end':
 						return _context.stop();
 				}

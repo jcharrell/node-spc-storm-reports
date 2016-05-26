@@ -1,5 +1,7 @@
 # node-spc-storm-reports
 
+[![npm version](https://badge.fury.io/js/node-spc-storm-reports.svg)](https://www.npmjs.com/package/node-spc-storm-reports)
+
 > This is a library that parses and returns NWS Storm Prediction Center [storm reports](http://www.spc.noaa.gov/climo/online/).
 
 ## Install

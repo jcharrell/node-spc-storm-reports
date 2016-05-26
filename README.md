@@ -18,9 +18,9 @@ var nodeStormReports = require('node-spc-storm-reports');
 
 // Only request tornado reports
 nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function spcResponse(data) {
-	console.log(data);
+  console.log(data);
 }).catch(function errorHandler(err) {
-	console.log(err);
+  console.log(err);
 });
 ```
 

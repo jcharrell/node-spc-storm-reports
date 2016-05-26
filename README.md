@@ -88,7 +88,6 @@ nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function
 
 ##Returned Data Structure Sample
 ```
-```
 {
   tornado: [
     {
@@ -157,7 +156,7 @@ nodeStormReports('2016-01-01', { hail: false, windDamage: false }).then(function
     }
   ]
 }
-````
+```
 
 ## License
 
